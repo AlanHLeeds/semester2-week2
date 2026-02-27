@@ -47,8 +47,8 @@ def screening_sales(conn):
     SELECT screenings.screening_id, films.title, Count(tickets.ticket_id) AS tickets_sold 
     FROM films LEFT JOIN screenings ON films.film_id = screenings.film_id
     LEFT JOIN tickets ON tickets.screening_id = screenings.screening_id
-    GROUP BY screenings.screening_id
-    ORDER BY tickets_sold DESC;
+    GROUP BY screenings.screening_id, films.title
+    ORDER BY tickets_sold DESC, screenings.screening_id ASC;
     
     '''
     cursor = conn.execute(query)
