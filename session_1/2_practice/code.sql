@@ -9,3 +9,5 @@
 
 
 -- write your sql code here
+
+SELECT Books.title, Loans.loan_date FROM Books LEFT JOIN LOANS ON Books.id = Loans.book_id JOIN MEMBERS ON Loans.member_id = Members.id ORDER BY Books.title
